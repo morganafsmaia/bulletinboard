@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Page Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" media="screen" href="./css/main.css" />
+    <link href="https://fonts.googleapis.com/css?family=Gentium+Basic" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Comfortaa" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+        crossorigin="anonymous"></script>
+</head>
+
+<body>
+
+    <nav>
+        <ul>
+            <li><a href='/'>Add a message</a></li>
+            <li><a href='/posts'>See all messages</a></li>
+        </ul>
+    </nav>
+
+    <section id='container'>
+    <h1>Hi! Please add a message to the board!</h1>
+    <form id='form'>
+        Title: <br>
+        <br>
+        <input type="text" name="title" id="title">
+        <br>
+        <br>
+        Message: <br>
+        <br>
+        <textarea id="body"></textarea>
+        <br>
+        <br>
+        <input type="button" value="Submit" id="button">
+    </form>
+
+    <div id="success"></div>
+
+    <script type="text/javascript">
+        //set post request when button is clicked, send data to the database, set AJAX to return a message of success on the <ul>
+
+        $('#button').on('click', (event) => {
+            var title = $('#title').val();
+            var comment = $('#body').val();
+            console.log(title, comment);
+
+            $.post('/', {
+                title: title,
+                comment: comment
+            }, (response) => {
+
+                $('#success').text(`${response}`);
+            })
+            document.getElementById("form").reset();
+        });
+    </script>
+
+    <footer>
+        Made by Morfsm.
+    </footer>
+</section>
+
+</body>
+
+</html>

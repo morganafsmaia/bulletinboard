@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Page Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" media="screen" href="./css/main.css" />
+    <link href="https://fonts.googleapis.com/css?family=Gentium+Basic" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Comfortaa" rel="stylesheet">
+    <script src="index.js"></script>
+</head>
+
+<body>
+
+    <nav>
+        <ul>
+            <li><a href='/'>Add a message</a></li>
+            <li><a href='/posts'>See all messages</a></li>
+        </ul>
+    </nav>
+    <section id='container'>
+    <h1>The board!</h1>
+
+    <section id='messages'>
+        <% for (var i = 0; i < data.length; i++){ %>
+        <div class='posts'></div>
+        <h2>
+            <%= data[i].title %>
+        </h2>
+        <p>
+            <%= data[i].body %>
+        </p>
+        </div>
+        <%}%>
+    </section>
+
+    <footer>
+        Made by Morfsm.
+    </footer>
+</section>
+
+</body>
+
+</html>
