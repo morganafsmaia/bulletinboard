@@ -31,9 +31,10 @@
 // This will allow Lindsey to grade your assignments without having to go into your code and change your connection string to his configuration.
 
 const express = require('express');
-const index = express();
 const ejs = require('ejs');
 const bodyParser = require('body-parser')
+
+const index = express();
 
 index.use(bodyParser.urlencoded({
     extended: false
