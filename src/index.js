@@ -32,8 +32,9 @@
 
 const express = require('express');
 const index = express();
-
+const ejs = require('ejs');
 const bodyParser = require('body-parser')
+
 index.use(bodyParser.urlencoded({
     extended: false
 }));
@@ -52,7 +53,7 @@ const client = new Client({
 
 client.connect()
 
-const ejs = require('ejs');
+
 index.set('view engine', 'ejs');
 index.set('views', './src/views');
 
